@@ -1,8 +1,19 @@
 {
-  "name": "nextstorybook",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "dcraft",
+  "version": "0.0.1",
   "license": "MIT",
+  "description": "A small UI component library",
+  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomasbarrios/dcraft.git"
+  },
   "dependencies": {
     "next": "^10.2.3",
     "react": "^17.0.2",
@@ -12,8 +23,16 @@
     "dev": "next -p 4001",
     "start": "next start",
     "build": "next build",
+    "build-t": "tsc",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
@@ -24,6 +43,11 @@
     "@types/node": "^15.12.0",
     "@types/react": "^17.0.9",
     "babel-loader": "^8.2.2",
+    "prettier": "^2.3.0",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.3.2"
-  }
+  },
+  "keywords": ["Minimal", "Design"],
+   "author": "Tomas Barrios"
 }
